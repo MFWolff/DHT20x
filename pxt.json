@@ -1,0 +1,22 @@
+{
+    "name": "DHT20x",
+    "version": "0.0.1",
+    "description": "DHT20x for MakeCode",
+    "dependencies": {
+        "core": "*"
+    },
+    "files": [
+        "README.md",
+        "main.ts",
+        "_locales/de/DHT20x-strings.json",
+        "_locales/de/DHT20x-jsdoc-strings.json"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "public": true,
+    "supportedTargets": [
+        "calliopemini"
+    ],
+    "preferredEditor": "tsprj"
+}

@@ -1,0 +1,5 @@
+{
+	"DHT20x.readTemperature|block": "Temperatur",
+	"DHT20x.readHumidity|block": "Luftfeuchtigkeit",
+	"DHT20x.ReadMessurement|block": "Werte holen",
+}

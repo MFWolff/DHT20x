@@ -1,0 +1,5 @@
+{
+	"DHT20x.readTemperature": "liest die Temperatur aus",
+	"DHT20x.readHumidity": "liest die Luftfeuchtigkeit aus",
+	"DHT20x.ReadMessurement": "Daten werden aus dem Sensor auslesen",
+}
