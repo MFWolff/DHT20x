@@ -1,7 +1,8 @@
 /**
  * DHT20x block
  */
-//%color=#444444 icon="\uf185" block="DHT20x"
+//%color="#444444" weight=200 icon="\uf769" block="DHT20x"
+// font-awesome: temperature-high
 namespace DHT20x {
 
     // Protokollbeschreibung des Sensors DHT20
@@ -21,13 +22,13 @@ namespace DHT20x {
     //% blockId=readMeasurement
 
 	export function readMeasurement(): void{
-        let dbuf = pins.createBuffer(7)  // DataBuffer, zum Empfang der Daten
-        let cbuf = pins.createBuffer(3) // CommandBuffer, zum Senden des Befehls zum Auslesen
-        let cbuf[0] = 0xAC
-		let cbuf[1] = 0x33
-		let cbuf[2] = 0x00
-		pins.i2cWriteBuffer(0x38, commandBuffer, false) // Die Adresse des Sensors ist 38h
-		pins.i2cWriteNumber(0x61, 0x0300, NumberFormat.UInt16BE, false)
+		let dbuf: any = pins.createBuffer(7)  // DataBuffer, zum Empfang der Daten
+		let cbuf: any = pins.createBuffer(3) // CommandBuffer, zum Senden des Befehls zum Auslesen
+        cbuf[0] = 0xAC
+		cbuf[1] = 0x33
+		cbuf[2] = 0x00
+		pins.i2cWriteBuffer(0x38, cbuf, false) // Die Adresse des Sensors ist 38h
+		// pins.i2cWriteNumber(0x61, 0x0300, NumberFormat.UInt16BE, false)
         basic.pause(100) // mehr als 80 ms sind gefordert zum Daten einsammeln
         dbuf = pins.i2cReadBuffer(0x38, 7, false)
         
@@ -53,8 +54,8 @@ namespace DHT20x {
 		
 		//
 		// let num = dbuf.getNumber(NumberFormat.Int32LE, 3)
-		
-		let raw_temp = dbuf[3] & 0x0f
+
+		let raw_temp: number = dbuf[3] & 0x0f
 		raw_temp <<= 8
 		raw_temp += dbuf[4]
 		raw_temp <<= 8
@@ -84,8 +85,8 @@ namespace DHT20x {
 		// oder 
 		
 		// rH[%] = S_rH / 10486
-		
-		let raw_hum = dbuf[1]
+
+		let raw_hum: number = dbuf[1]
 		raw_hum <<= 8
 		raw_hum += dbuf[2]
 		raw_hum <<= 8
@@ -99,21 +100,21 @@ namespace DHT20x {
     } // function readMeasurement()
 
     /**
-     * Reads Temperature
+     * provides Temperature
      */
-    //% weight=87 blockGap=8
-    //% block="Read Temperature" 
-    //% blockId=read_Temperature
+    //% weight=88 blockGap=8
+    //% block="Show Temperature" 
+    //% blockId=show_temperature
     export function readTemperature(): number{
         return temperature
     }
 
     /**
-     * Reads Humidity
+     * provides Humidity
      */
-    //% weight=87 blockGap=8
-    //% block="Read Humidity" 
-    //% blockId=read_Humidity
+    //% weight=89 blockGap=8
+    //% block="Show Humidity" 
+    //% blockId=show_humidity
     export function readHumidity(): number{
         return humidity
     }
