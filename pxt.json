@@ -1,6 +1,6 @@
 {
     "name": "DHT20x",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "DHT20x for MakeCode",
     "dependencies": {
         "core": "*"
