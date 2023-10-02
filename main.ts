@@ -105,7 +105,7 @@ namespace DHT20x {
     //% weight=88 blockGap=8
     //% block="Show Temperature" 
     //% blockId=show_temperature
-    export function readTemperature(): number{
+    export function showTemperature(): number{
         return temperature
     }
 
@@ -115,7 +115,7 @@ namespace DHT20x {
     //% weight=89 blockGap=8
     //% block="Show Humidity" 
     //% blockId=show_humidity
-    export function readHumidity(): number{
+    export function showHumidity(): number{
         return humidity
     }
 } 
